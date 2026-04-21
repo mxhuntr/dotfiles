@@ -20,6 +20,12 @@
                 <string>#F6F8FA</string>
                 <key>selection</key>
                 <string>#E8EAED</string>
+                <key>selectionBorder</key>
+                <string>#063970</string>
+                <key>shadow</key>
+                <string>#063970</string>
+                <key>gutterForeground</key>
+                <string>#063970</string>
             </dict>
         </dict>
         
