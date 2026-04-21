@@ -1,0 +1,82 @@
+#
+# ███████╗███████╗███████╗██╗  ██╗     ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
+# ██╔════╝██╔════╝██╔════╝██║  ██║    ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ 
+# ███████╗█████╗  ███████╗███████║    ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗
+# ╚════██║██╔══╝  ╚════██║██╔══██║    ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║
+# ███████║███████╗███████║██║  ██║    ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝
+# ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ 
+#
+
+[[session]]
+name = "dotfiles"
+path = "~/dotfiles"
+
+[[session]]
+name = "nvim"
+path = "~/dotfiles/nvim/.config/nvim"
+startup_command = "nvim"
+
+[[session]]
+name = "aerospace"
+path = "~/dotfiles/aerospace/.config/aerospace"
+startup_command = "nvim aerospace.toml"
+
+[[session]]
+name = "downloads"
+path = "~/Downloads"
+startup_command = "l"
+
+[[session]]
+name = "home"
+path = "~"
+disable_startup_command = true
+
+[[session]]
+name = "ice"
+path = "~"
+disable_startup_command = true
+
+[[session]]
+name = "malware"
+path = "~"
+disable_startup_command = true
+
+[[session]]
+name = "radware"
+path = "~"
+disable_startup_command = true
+
+[[session]]
+name = "kernel"
+path = "~"
+disable_startup_command = true
+
+[[session]]
+name = "blockchain"
+path = "~"
+disable_startup_command = true
+
+[[session]]
+name = "fish"
+path = "~/dotfiles/fish/.config/fish"
+startup_ccmmand = "frc"
+
+[[session]]
+name = "sesh"
+path = "~/dotfiles/sesh/.config/sesh"
+startup_command = "nvim sesh.toml"
+
+[[session]]
+name = "tmux"
+path = "~/dotfiles/tmux/.config/tmux"
+startup_command = "nvim tmux.conf"
+
+[[session]]
+name = "ghostty"
+path = "~/dotfiles/ghostty/.config/ghostty"
+startup_command = "grc"
+
+[[session]]
+name = "notes"
+path = "~/dev/Notes/"
+startup_command = "nvim"
