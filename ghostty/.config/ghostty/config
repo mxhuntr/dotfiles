@@ -1,20 +1,43 @@
 # By default Reload config with shft + cmd + ,
 
 config-file = themes/reverse_void
+language = ru
+# theme = Vague
 background-opacity = 1
 background-blur-radius = 0
 image-storage-limit = 320000000
+
 # font-family = Comic Code Semibold
 # font-family = JetBrainsMono NF Semibold
-font-family = MonoLisa Trial
-font-style-bold = MonoLisa Trial
+
+# font-family = MonoLisa Trial
+# font-style-bold = MonoLisa Trial
+# font-thicken
+# font-thicken-strength = 255
+# font-size = 15.9
+
+font-family = Maple Mono Medium
+font-style-bold = Maple Mono Bold
 font-thicken
-font-thicken-strength = 170
-# font-size = 17.4
-font-size = 16.4
+font-thicken-strength = 5
+font-size = 16.3
+
+# font-family = Cascadia Code Medium
+# font-style-bold = Cascadia Code Bold
+# font-thicken
+# font-thicken-strength = 0
+# font-size = 16.9
+
+# font-family = Berkeley Mono trial
+# font-style-bold = Berkeley Mono Trial
+# font-thicken
+# font-thicken-strength = 180
+# font-size = 16
+# adjust-cell-height = 10%
+
 cursor-style = block
 cursor-style-blink = true
-cursor-invert-fg-bg = true
+# cursor-invert-fg-bg = true
 
 macos-titlebar-style = hidden
 macos-option-as-alt = true
@@ -32,6 +55,17 @@ auto-update-channel = stable
 # extras
 shell-integration-features = no-cursor
 copy-on-select = clipboard
+macos-icon = custom
+macos-custom-icon = /Users/m/.config/ghostty/icons/ghostty-white.icns
+# macos-icon-frame = plastic
+
+# Quick Terminal
+quick-terminal-position = center
+quick-terminal-screen = main
+quick-terminal-animation-duration = 0.2
+quick-terminal-size = 90%,86%
+gtk-quick-terminal-layer = overlay
+quick-terminal-autohide = false
 
 # Custom Keybinds & Config (super represents cmd key on mac)
 # For Simple Keybinds
@@ -67,6 +101,7 @@ keybind = super+i=inspector:toggle
 # custom-shader = shaders/cursor_border_1.glsl
 # custom-shader = shaders/cursor_frozen.glsl
 custom-shader = shaders/cursor_smear.glsl
+# custom-shader = shaders/cursor_trail.glsl
 # custom-shader = shaders/cursor_smear_fade.glsl
 # custom-shader = shaders/cursor_smear_fade_original.glsl
 # custom-shader = shaders/cursor_smear_gradient.glsl
