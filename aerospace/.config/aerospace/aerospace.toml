@@ -5,11 +5,11 @@
 start-at-login = true
 
 after-startup-command = [
-  'exec-and-forget borders style=round width=4.0 active_color=0xff191724 inactive_color=0xffa6a6a6',
+  # 'exec-and-forget borders style=round width=7.0 active_color=0xffffffff inactive_color=0xffa6a6a6', # vague
+  # 'exec-and-forget borders style=round width=6.0 active_color=0xff7788AA inactive_color=0xff404552', # lackluster
+  # 'exec-and-forget borders style=round width=7.0 active_color=0xff000000 inactive_color=0xffa6a6a6', # reverse_void
   'exec-and-forget open -a "/Applications/Ghostty.app"',
   'exec-and-forget open -a "/Applications/Zen.app"',
-  'exec-and-forget open -a "/Applications/ChatGPT.app"',
-  # 'exec-and-forget open -a "/Applications/Visual Studio Code - Insiders.app"',
   'exec-and-forget open -a "/Applications/Brave Browser.app"'
 ]
 
@@ -84,41 +84,14 @@ run = [
   # "layout floating"
 ]
 
-[[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Safari'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.mail'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.QuickTimePlayerX'
-run = 'layout floating'
-
-# Camera apps (add specific IDs for the camera apps you use)
-[[on-window-detected]]
-if.app-id = 'com.apple.camera'
-run = 'layout floating'
-
-# Elgato apps (add specific app ID)
-[[on-window-detected]]
-if.app-id = 'com.corsair.ControlCenter'
-run = 'layout floating'
-
-# Trello (web or app)
-[[on-window-detected]]
-if.app-id = 'com.atlassian.trello'
-run = 'layout floating'
-
 # Preview (web or app)
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = "Python"
+run = "layout floating"
 
 # ─────────────────────────────────────────────
 # Key Mapping
@@ -211,8 +184,6 @@ alt-tab = 'workspace-back-and-forth'
 # Primary apps
 shift-enter = 'exec-and-forget open -a "/Applications/Zen.app"'
 ctrl-enter  = 'exec-and-forget open -a "/Applications/Ghostty.app"'
-alt-enter = 'exec-and-forget open -a "/Applications/ChatGPT.app"'
-cmd-enter = 'exec-and-forget open -a "/Applications/Visual Studio Code - Insiders.app"'
  
 # Additional apps
 alt-b = 'exec-and-forget open -a "/Applications/Brave Browser.app"'
