@@ -20,10 +20,17 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 # Key Bindings
-bind --mode insert ctrl-o nvim
-bind --mode insert ctrl-\\ rmpc
+bind -M insert ctrl-o nvim
+bind ctrl-o nvim
+bind -M insert ctrl-\\ rmpc
+bind ctrl-\\ rmpc
+bind -M insert ctrl-f fzf-file-widget
+bind ctrl-f fzf-cd-widget
+bind -M insert ctrl-m _sesh_connect
+bind ctrl-m _sesh_connect
 
 # Global variables
+set -gx LANG ru_RU.UTF-8
 set -gx EZA_CONFIG_DIR ~/.config/eza
 set -Ux MANPAGER "nvim +Man!"
 set -x LESSHISTFILE "-"
@@ -37,6 +44,7 @@ set -x PATH $HOME/go/bin $PATH
 set -gx GOPATH (go env GOPATH)
 set -gx GOBIN $GOPATH/bin
 set -gx PATH $PATH $GOBIN
+set -x  PATH $HOME/.local/share/solana/install/active_release/bin $PATH
 
 # |====== Aliases  ======|
 alias vim nvim
@@ -51,13 +59,10 @@ alias gc "git clone"
 alias glog "git log --oneline --graph --all"
 
 # |====== Utils  ======|
-alias sf "fzf | xargs nvim"
 alias cp "cp -i"
 alias dow "z ~/Downloads"
 alias doc "z ~/Documents"
-alias p "open -a Preview.app"
 alias h history
-alias pp "string split ':' $PATH | fzf"
 alias attach "tmux attach"
 alias mpds "mpd ~/.config/mpd/mpd.conf"
 
@@ -93,12 +98,38 @@ alias code code-insiders
 # |======  Custom  ======|
 alias live 'live-server --port=5500 --wait=50 --ignore="**/*.scss,**/*.sass,**/*.ts,.vscode/**"'
 alias trs "tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}' | xargs -I {} tmux send-keys -t {} 'source ~/.config/fish/config.fish' Enter"
-# alias trf "tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}' | xargs -I {} tmux send-keys -t {} 'exec fish' Enter"
-alias trf "tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | awk '$2 ~ /fish|bash|zsh/ {print $1}' | xargs -I {} tmux send-keys -t {} 'exec fish' Enter"
+alias trf "tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}' | xargs -I {} tmux send-keys -t {} 'exec fish' Enter"
+# alias trf "tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | awk '$2 ~ /fish|bash|zsh/ {print $1}' | xargs -I {} tmux send-keys -t {} 'exec fish' Enter"
 
 # |======  HomeBrew ======|
 alias bi "brew install"
 alias bs "brew search"
+
+# FZF default command
+set -gx FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git"
+
+# FZF default opts with vague colors
+# set -gx FZF_DEFAULT_OPTS "\
+#   --tmux 90%,85%\
+#   --style full \
+#   --color=bg:-1,bg+:#1e1e22,fg:#90a0b5,fg+:#f3be7c \
+#   --color=hl:#d8647e,hl+:#d8647e,border:#606079,label:#aeaed1 \
+#   --color=prompt:#b4d4cf,pointer:#f3be7c,marker:#7fa563,spinner:#bb9dbd"
+
+# FZF default opts with reverse_void colors
+set -gx FZF_DEFAULT_OPTS "\
+  --tmux 90%,85%\
+  --style full \
+  --color=bg:-1,bg+:#B2B2B3,fg:#4C465D,fg+:#1F1F1F \
+  --color=hl:#D73A49,hl+:#D73A49,border:#5E6F8E,label:#6B6B6B \
+  --color=prompt:#D73A49,pointer:#1F1F1F,marker:#063970,spinner:#6B6B6B"
+
+function _sesh_connect
+    set session (sesh list -c -t | fzf)
+    if test -n "$session"
+        sesh connect $session
+    end
+end
 
 function delx
     set files (find . -maxdepth 1 -type f -perm +111)
@@ -124,15 +155,109 @@ function delx
     end
 end
 
+function f
+    set selected (fd --type d --hidden \
+        --exclude .git \
+        --exclude node_modules \
+        --exclude target \
+        --exclude .venv \
+        --exclude venv \
+        --exclude __pycache__ \
+        --exclude dist \
+        --exclude build \
+        --exclude .idea \
+        --exclude .vscode \
+        . ~/dev | \
+        grep -i "$argv[1]" | \
+        sed "s|$HOME/dev/||" | \
+        fzf --select-1 --exit-0 --tmux 75%,80%)
+    if test -n "$selected"
+        cd "$HOME/dev/$selected"
+    else
+        echo "No folder selected"
+    end
+end
+
+function o
+    set selected (fd --type f --hidden \
+        --exclude .git \
+        --exclude node_modules \
+        --exclude target \
+        --exclude .venv \
+        --exclude venv \
+        --exclude __pycache__ \
+        --exclude dist \
+        --exclude build \
+        --exclude .idea \
+        --exclude .vscode \
+        --exclude "*.pyc" \
+        --exclude "*.lock" \
+        --exclude "*.min.js" \
+        --exclude "*.min.css" \
+        --exclude "*.map" \
+        --exclude ".DS_Store" \
+        . ~/dev | \
+        grep -i "$argv[1]" | \
+        sed "s|$HOME/dev/||" | \
+        fzf --select-1 --exit-0 \
+            --preview 'bat --color=always --style=numbers ~/dev/{}' \
+            --preview-window 'right:55%:border-left')
+    if test -n "$selected"
+        nvim "$HOME/dev/$selected"
+    else
+        echo "No file selected"
+    end
+end
+
 function s
-    set dir (fd --type d --max-depth 3 . ~/dev | fzf --preview 'eza --icons --color=always -la {}')
-    if test -n "$dir"
-        cd $dir
+    set selected (fd --type f --hidden \
+        --exclude .git \
+        --exclude node_modules \
+        --exclude target \
+        --exclude .venv \
+        --exclude venv \
+        --exclude __pycache__ \
+        --exclude dist \
+        --exclude build \
+        --exclude .idea \
+        --exclude .vscode \
+        --exclude "*.pyc" \
+        --exclude "*.lock" \
+        --exclude "*.min.js" \
+        --exclude "*.min.css" \
+        --exclude "*.map" \
+        --exclude ".DS_Store" \
+        . | \
+        grep -i "$argv[1]" | \
+        sed 's|^\./||' | \
+        fzf --select-1 --exit-0 \
+            --preview 'bat --color=always --style=numbers {}' \
+            --preview-window 'right:55%:border-left')
+    if test -n "$selected"
+        nvim $selected
+    else
+        echo "No file selected"
+    end
+end
+
+function p
+    set selected (fd --type f --hidden \
+        -e png -e jpg -e jpeg -e gif -e tiff -e bmp -e heic -e webp -e svg -e ico \
+        -e pdf -e ai -e eps -e ps \
+        -e cr2 -e nef -e arw \
+        . | \
+        grep -i "$argv[1]" | \
+        sed 's|^\./||' | \
+        fzf --select-1 --exit-0 --no-preview --tmux 75%,80%)
+    if test -n "$selected"
+        open -a "Preview" $selected
+    else
+        echo "No file selected"
     end
 end
 
 # source
 starship init fish | source
 zoxide init fish | source
+fzf --fish | source
 status --is-interactive; and rbenv init - fish | source
-
