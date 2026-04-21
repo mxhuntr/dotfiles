@@ -1,10 +1,10 @@
-sw_volume: 100
+sw_volume: 50
 audio_device_state:1:CoreAudio
 audio_device_state:1:HTTP Stream
 audio_device_state:1:my_fifo
 state: pause
-current: 13
-time: 13.24
+current: 21
+time: 115.56400000000001
 random: 0
 repeat: 0
 single: 0
@@ -16,25 +16,31 @@ lastloadedplaylist:
 playlist_begin
 0:KALYANI.opus
 1:Tuyo.opus
-2:Can't Help Falling In Love [TlrNxJqODBc].opus
-3:Can't Help Falling In Love.opus
-4:Careless Whisper.opus
-5:Just the Two of Us.opus
-6:Ladyfingers.opus
-7:Aap Ki Kashish [qfbGAWK-SGM].opus
-8:Aap Ki Kashish [Y6FWFKXu1FY].opus
-9:The Lamp Is Low.opus
-10:Sway.opus
-11:Israel ＂IZ＂ Kamakawiwoʻole.opus
-12:Aarzu.opus
-13:Put Your Head On My Shoulder.opus
-14:Faqeeran.opus
-15:The Night We Met.opus
-16:Smooth Operator.opus
-17:You Belong to Me.opus
-18:And I Love Her.opus
-19:Sleepwalk.opus
-20:DtMF.opus
-21:Far From Any Road.opus
-22:Be My Baby.opus
+2:Bairan [rHdS6g5XabA].opus
+3:Kashish.opus
+4:Can't Help Falling In Love [TlrNxJqODBc].opus
+5:Can't Help Falling In Love.opus
+6:Careless Whisper.opus
+7:Just the Two of Us.opus
+8:kalyani ｜ slowed and reverb ♡ [Ypt7g7fOvWA].opus
+9:Ladyfingers.opus
+10:Aap Ki Kashish [Y6FWFKXu1FY].opus
+11:The Lamp Is Low.opus
+12:Zulfein.opus
+13:Sway.opus
+14:Israel ＂IZ＂ Kamakawiwoʻole.opus
+15:Aarzu.opus
+16:Put Your Head On My Shoulder.opus
+17:Faqeeran.opus
+18:The Night We Met.opus
+19:Smooth Operator.opus
+20:Aasmani [QOpb7Pp9gFI].opus
+21:Aasmani (Acoustic) ｜ Samad Khan ｜ Visualiser [isNjU7A3uFI].opus
+22:You Belong to Me.opus
+23:And I Love Her.opus
+24:Sleepwalk.opus
+25:DtMF.opus
+26:Far From Any Road.opus
+27:Be My Baby.opus
+28:Jogi [hzpazXpEC4w].opus
 playlist_end

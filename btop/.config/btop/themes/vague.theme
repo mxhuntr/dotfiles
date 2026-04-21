@@ -1,0 +1,65 @@
+# Btop Vague theme
+# Based on vague.nvim (https://github.com/vague-theme/vague.nvim)
+
+# Main bg
+theme[main_bg]=""
+# Main text color
+theme[main_fg]="#cdcdcd"
+# Title color for boxes
+theme[title]="#cdcdcd"
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#d8647e"
+# Background color of selected item in processes box
+theme[selected_bg]="#333738"
+# Foreground color of selected item in processes box
+theme[selected_fg]="#f3be7c"
+# Color of inactive/disabled text
+theme[inactive_fg]="#606079"
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#b4d4cf"
+# Cpu box outline color
+theme[cpu_box]="#606079"
+# Memory/disks box outline color
+theme[mem_box]="#606079"
+# Net up/down box outline color
+theme[net_box]="#606079"
+# Processes box outline color
+theme[proc_box]="#606079"
+# Box divider line and small boxes line color
+theme[div_line]="#606079"
+# Temperature graph colors
+theme[temp_start]="#7fa563"
+theme[temp_mid]="#f3be7c"
+theme[temp_end]="#d8647e"
+# CPU graph colors
+theme[cpu_start]="#7fa563"
+theme[cpu_mid]="#f3be7c"
+theme[cpu_end]="#d8647e"
+# Mem/Disk free meter
+theme[free_start]="#d8647e"
+theme[free_mid]="#c48282"
+theme[free_end]="#e8b589"
+# Mem/Disk cached meter
+theme[cached_start]="#f3be7c"
+theme[cached_mid]="#e8b589"
+theme[cached_end]="#f3be7c"
+# Mem/Disk available meter
+theme[available_start]="#bb9dbd"
+theme[available_mid]="#aeaed1"
+theme[available_end]="#b4d4cf"
+# Mem/Disk used meter
+theme[used_start]="#6e94b2"
+theme[used_mid]="#7e98e8"
+theme[used_end]="#b4d4cf"
+# Download graph colors
+theme[download_start]="#6e94b2"
+theme[download_mid]="#bb9dbd"
+theme[download_end]="#aeaed1"
+# Upload graph colors
+theme[upload_start]="#f3be7c"
+theme[upload_mid]="#e8b589"
+theme[upload_end]="#d8647e"
+# Process box color gradient for threads, mem and cpu usage
+theme[process_start]="#7fa563"
+theme[process_mid]="#f3be7c"
+theme[process_end]="#d8647e"

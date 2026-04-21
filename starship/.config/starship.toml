@@ -4,6 +4,8 @@ add_newline = true
 format = "$directory$git_branch$character"
 palette = "reverse_void"
 # palette = "kanagawa"
+# palette = "lackluster"
+# palette = "vague"
 
 [character]
 # success_symbol = "[❯](ink)"
@@ -111,6 +113,30 @@ muted      = "#8A8A8A"
 warn       = "#9C7C38"
 error      = "#8C3A3A"
 background = "#F6F4EE"
+
+# =========================
+# 🎨 Vague Palette
+# =========================
+
+[palettes.vague]
+ink        = "#D4BD98"
+faded      = "#787BAB"
+muted      = "#BC96B0"
+warn       = "#606079"
+error      = "#E8788A"
+background = "#161616"
+
+# =========================
+# 🎨 Lackluster Palette
+# =========================
+
+[palettes.lackluster]
+ink        = "#FFAA88"   # primary text (soft white)
+faded      = "#708090"   # blue-gray (secondary text)
+muted      = "#555555"   # base gray
+warn       = "#7788AA"   # muted blue (calm warning)
+error      = "#CCCCCC"   # soft red/orange
+background = "#1A1A1A"   # dark neutral bg (not pure black)
 
 # =========================
 # 🎨 Kanagawa Palette

@@ -5,21 +5,21 @@ selection-foreground = #1F1F1F
 selection-background = #E9E6DE
 
 # Base ANSI
-palette = "0=#1F1F1F"
-palette = "1=#7A2E2E"
-palette = "2=#6F8A6A"
-palette = "3=#9C7C38"
-palette = "4=#5E6F8E"
-palette = "5=#6F6788"
+palette = "1=#1F1F1F"
+palette = "1=#D73A49"
+palette = "2=#5E6F8E"
+palette = "3=#B2B2B3"
+palette = "4=#063970"
+palette = "5=#4C465D"
 palette = "6=#6C8891"
-palette = "7=#E6E3DB"
+palette = "7=#075F5A"
 
 palette = "8=#6B6B6B"
 palette = "9=#7A2E2E"
-palette = "10=#6F8A6A"
-palette = "11=#9C7C38"
-palette = "12=#3375bf"
-palette = "13=#6F6788"
+palette = "10=#0350AE"
+palette = "11=#1A7595"
+palette = "12=#0350AE"
+palette = "13=#4C465D"
 palette = "14=#6C8891"
 palette = "15=#1F1F1F"
 
