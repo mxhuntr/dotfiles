@@ -5,9 +5,9 @@
         "type": "file",
         "height": 19,
         "width": 20,
-        "color": {
-            "1": "#000000"
-        },
+        // "color": {
+        //     "1": "#FFFFFF"
+        // },
         "padding": {
             "top": 1,
             "right": 2,
@@ -25,29 +25,29 @@
         {
             "type": "host",
             "key": " PC",
-            "keyColor": "#a96b7d",
+            // "keyColor": "#a96b7d",
             "format": "MacBook Pro (14-inch, 2024)"
         },
         {
             "type": "cpu",
             "key": "│ ├",
             "showPeCoreCount": true,
-            "keyColor": "#a96b7d"
+            // "keyColor": "#a96b7d"
         },
         {
             "type": "gpu",
             "key": "│ ├󰢮",
-            "keyColor": "#b38b6d"
+            // "keyColor": "#b38b6d"
         },
         {
             "type": "memory",
             "key": "│ ├",
-            "keyColor": "#6e8f6a"
+            // "keyColor": "#6e8f6a"
         },
         {
             "type": "disk",
             "key": "│ └",
-            "keyColor": "#5f8a87",
+            // "keyColor": "#5f8a87",
             "format": "{1} / {2} ({3}) - {9}"
         },
         {
@@ -63,27 +63,27 @@
         {
             "type": "os",
             "key": "󰀵 OS",
-            "keyColor": "#6e8f6a"
+            // "keyColor": "#6e8f6a"
         },
         {
             "type": "kernel",
             "key": "│ ├",
-            "keyColor": "#5f8a87"
+            // "keyColor": "#5f8a87"
         },
         {
             "type": "packages",
             "key": "│ ├󰏖",
-            "keyColor": "#6f6788"
+            // "keyColor": "#6f6788"
         },
         {
             "type": "terminal",
             "key": "│ ├",
-            "keyColor": "#5c7e9e"
+            // "keyColor": "#5c7e9e"
         },
         {
             "type": "shell",
             "key": "└ └",
-            "keyColor": "#a96b7d"
+            // "keyColor": "#a96b7d"
         },
         {
             "type": "custom",
@@ -94,32 +94,32 @@
         {
             "type": "de",
             "key": " DE",
-            "keyColor": "#5c7e9e"
+            // "keyColor": "#5c7e9e"
         },
         {
             "type": "lm",
             "key": "│ ├",
-            "keyColor": "#6f6788"
+            // "keyColor": "#6f6788"
         },
         {
             "type": "wm",
             "key": "│ ├",
-            "keyColor": "#5f8a87"
+            // "keyColor": "#5f8a87"
         },
         {
             "type": "wmtheme",
             "key": "│ ├󰉼",
-            "keyColor": "#b38b6d"
+            // "keyColor": "#b38b6d"
         },
         {
             "type": "font",
             "key": "│ ├",
-            "keyColor": "#6e8f6a"
+            // "keyColor": "#6e8f6a"
         },
         {
             "type": "cursor",
             "key": "│ ├󰆿",
-            "keyColor": "#a96b7d"
+            // "keyColor": "#a96b7d"
         },
         {
             "type": "custom",

@@ -1,0 +1,28 @@
+return {
+	filetypes = {
+		"astro",
+		"css",
+		"eruby",
+		"html",
+		"htmlangular",
+		"htmldjango",
+		"javascriptreact",
+		"less",
+		"sass",
+		"scss",
+		"svelte",
+		"typescriptreact",
+		"vue",
+	},
+	init_options = {
+		includeLanguages = {},
+		excludeLanguages = {},
+		extensionsPath = {},
+		preferences = {},
+		showAbbreviationSuggestions = true,
+		showExpandedAbbreviation = "always",
+		showSuggestionsAsSnippets = false,
+		syntaxProfiles = {},
+		variables = {},
+	},
+}

@@ -6,7 +6,7 @@ return {
 		require("nvim-treesitter").setup({
 			textobjects = {
 				move = {
-					enable = true,
+					enable = false,
 					set_jumps = true,
 					goto_next_start = {
 						["[f"] = "@function.outer",
@@ -22,7 +22,7 @@ return {
 					},
 				},
 				select = {
-					enable = true,
+					enable = false,
 
 					-- Automatically jump forward to textobj, similar to targets.vim
 					lookahead = true,

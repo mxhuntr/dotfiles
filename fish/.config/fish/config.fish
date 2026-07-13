@@ -13,7 +13,7 @@ set -g fish_key_bindings fish_vi_key_bindings
 fish_add_path /bin
 fish_add_path ~/.local/bin
 fish_add_path ~/go/bin
-fish_config theme choose reverse_void
+fish_config theme choose immortal
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
@@ -38,7 +38,7 @@ set -Ux GPG_TTY (tty)
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
 set -gx XDG_CONFIG_HOME ~/.config
-set -gx BAT_THEME "reverse-void"
+set -gx BAT_THEME "base16"
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/go/bin $PATH
 set -gx GOPATH (go env GOPATH)
@@ -60,10 +60,9 @@ alias glog "git log --oneline --graph --all"
 
 # |====== Utils  ======|
 alias cp "cp -i"
-alias dow "z ~/Downloads"
-alias doc "z ~/Documents"
+alias dow "cd ~/Downloads"
+alias doc "cd ~/Documents"
 alias h history
-alias attach "tmux attach"
 alias mpds "mpd ~/.config/mpd/mpd.conf"
 
 # |======  CD  ======|
@@ -79,12 +78,14 @@ alias e "eza --long --tree"
 alias lt "eza -lAh --icons=always --git --tree --level=4 --long --ignore-glob='node_modules|.git' "
 
 # |======  Config App  ======|
-alias nrc "cd ~/.config/nvim | vim "
-alias trc "cd ~/.config/tmux | vim "
-alias frc "vim ~/.config/fish/config.fish"
+alias nrc "cd ~/.config/nvim && vim"
+alias trc "cd ~/.config/tmux && vim tmux.conf"
+alias frc "cd ~/.config/fish && vim config.fish"
+alias krc "cd ~/.config/kitty && vim kitty.conf"
 alias gnrc "cd ~/.gnupg/"
-alias grc "vim ~/.config/ghostty/config"
+alias grc "cd ~/.config/ghostty && vim config"
 alias arc "vim ~/.config/aerospace/aerospace.toml"
+alias strc "vim ~/.config/starship.toml"
 alias u "source ~/.config/fish/config.fish"
 alias gu "gpgconf --kill gpg-agent &&  gpgconf --launch gpg-agent"
 
@@ -105,24 +106,35 @@ alias trf "tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}'
 alias bi "brew install"
 alias bs "brew search"
 
+# |======  Abbreviations ======|
+abbr yt-dlp 'yt-dlp --cookies ~/Downloads/cookies.txt -x --audio-format mp3 --embed-metadata --no-playlist -o "%(title)s.%(ext)s"'
+
 # FZF default command
 set -gx FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git"
 
-# FZF default opts with vague colors
+# FZF default opts with immortal colors
+set -gx FZF_DEFAULT_OPTS "\
+    --tmux 90%,85%\
+    --style full \
+    --color=bg:-1,bg+:#1e1e22,fg:#c1c1c1,fg+:#c1c1c1 \
+    --color=hl:#7799bb,hl+:#7799bb,border:#999999,label:#505050 \
+    --color=prompt:#7799bb,pointer:#c1c1c1,marker:#999999,spinner:#999999"
+
+# # FZF default opts with vague colors
 # set -gx FZF_DEFAULT_OPTS "\
 #   --tmux 90%,85%\
 #   --style full \
-#   --color=bg:-1,bg+:#1e1e22,fg:#90a0b5,fg+:#f3be7c \
+#   --color=bg:-1,bg+:#1e1e22,fg:#7799bb,fg+:#f3be7c \
 #   --color=hl:#d8647e,hl+:#d8647e,border:#606079,label:#aeaed1 \
 #   --color=prompt:#b4d4cf,pointer:#f3be7c,marker:#7fa563,spinner:#bb9dbd"
 
 # FZF default opts with reverse_void colors
-set -gx FZF_DEFAULT_OPTS "\
-  --tmux 90%,85%\
-  --style full \
-  --color=bg:-1,bg+:#B2B2B3,fg:#4C465D,fg+:#1F1F1F \
-  --color=hl:#D73A49,hl+:#D73A49,border:#5E6F8E,label:#6B6B6B \
-  --color=prompt:#D73A49,pointer:#1F1F1F,marker:#063970,spinner:#6B6B6B"
+# set -gx FZF_DEFAULT_OPTS "\
+#   --tmux 90%,85%\
+#   --style full \
+#   --color=bg:-1,bg+:#B2B2B3,fg:#4C465D,fg+:#1F1F1F \
+#   --color=hl:#D73A49,hl+:#D73A49,border:#5E6F8E,label:#6B6B6B \
+#   --color=prompt:#D73A49,pointer:#1F1F1F,marker:#063970,spinner:#6B6B6B"
 
 function _sesh_connect
     set session (sesh list -c -t | fzf)

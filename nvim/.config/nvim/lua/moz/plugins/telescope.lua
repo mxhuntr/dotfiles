@@ -5,13 +5,14 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		"nvim-tree/nvim-web-devicons",
+		-- "nvim-tree/nvim-web-devicons",
+		"nvim-mini/mini.icons",
 		"andrew-george/telescope-themes",
 	},
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		local builtin = require("telescope.builtin")
+		-- local builtin = require("telescope.builtin")
 
 		telescope.load_extension("fzf")
 		telescope.load_extension("themes")
@@ -23,6 +24,9 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-j>"] = actions.move_selection_next,
+					},
+					n = {
+						["<Esc>"] = actions.close, -- n_esc equivalent
 					},
 				},
 			},
@@ -39,8 +43,7 @@ return {
 		})
 
 		-- Keymaps
-		vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Fuzzy find recent files" })
-		vim.keymap.set("n", "<leader>o", function()
+		vim.keymap.set("n", "<leader>so", function()
 			-- You can pass additional configuration to telescope to change theme, layout, etc.
 			require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 				layout_config = {
@@ -49,16 +52,5 @@ return {
 				},
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer]" })
-		vim.keymap.set("n", "<leader>pWs", function()
-			local word = vim.fn.expand("<cWORD>")
-			builtin.grep_string({ search = word })
-		end, { desc = "Find Connected Words under cursor" })
-
-		vim.keymap.set(
-			"n",
-			"<leader>ths",
-			"<cmd>Telescope themes<CR>",
-			{ noremap = true, silent = true, desc = "Theme Switcher" }
-		)
 	end,
 }

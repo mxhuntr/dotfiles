@@ -17,7 +17,7 @@ return {
 	}),
 
 	s("mm", {
-		t({ "int main(int argc, char** argv) {", "" }),
+		t({ "int main() {", "\t" }),
 		i(1, { "" }),
 		t({ "", "\treturn 0;", "}" }),
 	}),
@@ -29,7 +29,7 @@ return {
 			"",
 			"using namespace std;",
 			"",
-			"int main(int argc, char** argv) {",
+			"int main() {",
 			"",
 		}),
 		i(1, { "" }),

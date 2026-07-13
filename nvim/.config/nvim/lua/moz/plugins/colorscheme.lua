@@ -1,4 +1,79 @@
 return {
+	-- NOTE: Koda
+	{
+		"oskarnurm/koda.nvim",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
+		config = function()
+			require("koda").setup({
+				transparent = true, -- enable for transparent backgrounds
+				theme = {
+					dark = "dark",
+					light = "light",
+				},
+				auto = false, -- disable to load ALL available plugin highlights
+				cache = true, -- caches the theme for better performance
+				styles = {
+					functions = { bold = true },
+					keywords = {},
+					comments = {},
+					strings = {},
+					constants = {}, -- includes numbers, booleans
+				},
+				colors = {
+					-- string = "#D3D3D3",
+					string = "#7393B3",
+					emphasis = "#b0b0b0",
+					func = "#BC96B0",
+					char = "#7AA89F",
+					special = "#7AA89F",
+					const = "#d4b878",
+					-- border = "#b0b0b0",
+					border = "#50585d",
+					keywords = "#7AA89F",
+				},
+				on_highlights = function(hl, c)
+					hl.MiniIndentscopeSymbol = { fg = "#777777" } -- active scope (was IblScope)
+					hl.MiniIndentscopeSymbolOff = { fg = "#2A2A35" } -- inactive indent (was IblIndent)
+					hl.IblIndent = { fg = "#2A2A35" }
+					hl.IblScope = { fg = "#777777" }
+					hl.GitGraphHash = { fg = "#888888" }
+					hl.GitGraphTimestamp = { fg = "#888888" }
+					hl.GitGraphAuthor = { fg = "#7799bb" }
+					hl.GitGraphBranchName = { fg = "#c1c1c1", bold = true }
+					hl.GitGraphBranchTag = { fg = "#999999" }
+					hl.GitGraphBranchMsg = { fg = "#c1c1c1" }
+					hl.GitGraphBranch1 = { fg = "#c4746e" }
+					hl.GitGraphBranch2 = { fg = "#7799bb" }
+					hl.GitGraphBranch3 = { fg = "#7AA89F" }
+					hl.GitGraphBranch4 = { fg = "#d4b878" }
+					hl.GitGraphBranch5 = { fg = "#999999" }
+					hl.FFFBorder = { fg = "#50585d" }
+					hl.BlinkCmpLabelMatch = { fg = "#7AA89F" }
+
+					-- FFF stuff
+					hl.CustomFFFGitStaged = { fg = "#c4746e" }
+					hl.CustomFFFGitModified = { fg = "#7AA89F" }
+					hl.CustomFFFGitDeleted = { fg = "#d4b878" }
+					hl.CustomFFFGitRenamed = { fg = "#7799bb" }
+					hl.CustomFFFGitUntracked = { fg = "#999999" }
+					hl.CustomFFFGitIgnored = { fg = "#999999" }
+					hl.CustomFFFGitSignStaged = { fg = "#c4746e" }
+					hl.CustomFFFGitSignModified = { fg = "#7AA89F" }
+					hl.CustomFFFGitSignDeleted = { fg = "#d4b878" }
+					hl.CustomFFFGitSignRenamed = { fg = "#7799bb" }
+					hl.CustomFFFGitSignUntracked = { fg = "#999999" }
+					hl.CustomFFFGitSignIgnored = { fg = "#999999" }
+					hl.CustomFFFGitSignStagedSelected = { fg = "#c4746e" }
+					hl.CustomFFFGitSignModifiedSelected = { fg = "#7AA89F" }
+					hl.CustomFFFGitSignDeletedSelected = { fg = "#d4b878" }
+					hl.CustomFFFGitSignRenamedSelected = { fg = "#7799bb" }
+					hl.CustomFFFGitSignUntrackedSelected = { fg = "#999999" }
+					hl.CustomFFFGitSignIgnoredSelected = { fg = "#999999" }
+				end,
+			})
+		end,
+	},
 	-- NOTE: monochrome
 	{
 		"idr4n/github-monochrome.nvim",
@@ -11,25 +86,39 @@ return {
 				keywords = { italic = false },
 				floats = "transparent",
 			},
+			on_colors = function(c, s)
+				c.terminal.green = "#0350AE"
+				c.terminal.green_bright = "#0350AE"
+				if s == "light" then
+					c.fg = "#000000"
+					c.string = "#0350AE"
+					c.green = "#0350AE"
+					c.comment = "#979697"
+				end
+			end,
 			on_highlights = function(hl, c)
 				-- Main backgrounds
-				hl.String = { fg = c.blue }
-				hl.Character = { fg = c.blue }
-				hl.Function = { fg = c.blue }
-				hl["@string"] = { fg = c.blue }
-				hl["@function"] = { fg = c.blue }
-				hl["@function.call"] = { fg = c.blue }
 				hl.Normal = { bg = c.none }
 				hl.NormalNC = { bg = c.none }
-				hl.Visual = { bg = "#CCCCFF" }
+				hl.Visual = { bg = "#B2B2B3" }
 				hl.NormalFloat = { bg = c.none }
 				hl.FloatBorder = { bg = c.none }
 				hl.FloatTitle = { bg = c.none }
 
+				hl.SnacksDashboardHeader = { fg = c.fg, bold = true }
 				-- Noice LSP progress notifications (bottom right)
 				hl.NoiceLspProgressTitle = { fg = c.blue } -- Change title color
 				hl.NoiceLspProgressClient = { fg = c.fg } -- Client name color
 				hl.NoiceLspProgressSpinner = { fg = c.blue } -- Spinner color
+				hl.NoiceCmdlinePopupBorder = { fg = "#9E3B3B" }
+				hl.NoiceCmdlinePopup = { bg = c.none }
+				hl.NoiceCmdlineIcon = { fg = "#9E3B3B" }
+
+				-- Indent guides
+				hl.IblIndent = { fg = "#CBCBCB", bold = true } -- Light grey for all indent lines
+				hl.IblScope = { fg = "#000000" } -- Black for current scope
+				hl.MiniIndentscopeSymbol = { fg = "#000000" } -- active scope (was IblScope)
+				hl.MiniIndentscopeSymbolOff = { fg = "#CBCBCB" } -- inactive indent (was IblIndent)
 
 				-- Telescope
 				hl.TelescopeNormal = { bg = c.none }
@@ -48,10 +137,11 @@ return {
 
 				-- Snacks Picker
 				hl.SnacksPickerInputBorder = { fg = c.black, bg = c.bg_float }
-				hl.SnacksPickerListCursorLine = { bg = "#CCCCFF" }
-				hl.SnacksPickerPreviewCursorLine = { bg = "#D73A49" }
+				hl.SnacksPickerListCursorLine = { bg = "#B2B2B3" }
+				hl.SnacksPickerPreviewCursorLine = { bg = "#B2B2B3" }
 				hl.SnacksPickerPreviewTitle = { fg = "#D73A49", bg = c.bg_float }
 				hl.SnacksPickerInputTitle = { fg = "#D73A49", bg = c.bg_float }
+				hl.SnacksPickerMatch = { fg = "#D73A49", bold = true } -- Change to red
 
 				-- LSP/Completion menu (nvim-cmp)
 				hl.Pmenu = { bg = c.none }
@@ -107,7 +197,36 @@ return {
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other plugins
 		config = function()
-			require("vague").setup({})
+			require("vague").setup({
+				transparent = true,
+				bold = true,
+				italic = false,
+				colors = {
+					func = "#BC96B0",
+					keyword = "#787BAB",
+					string = "#D4BD98",
+					-- string = "#8A739A",
+					-- string = "#F2E6FF",
+					-- number = "#F2E6FF",
+					-- string = D8D5B1",
+					number = "#8F729E",
+					-- type = "#DCAED7",
+				},
+				on_highlights = function(hl, c)
+					-- indent guides
+					hl.MiniIndentscopeSymbol = { fg = "#787BAB" } -- active scope (was IblScope)
+					hl.MiniIndentscopeSymbolOff = { fg = "#2A2A35" } -- inactive indent (was IblIndent)
+					hl.IblIndent = { fg = "#2A2A35" }
+					hl.IblWhitespace = { fg = "#CDCDCD" }
+					hl.IblScope = { fg = "#787BAB" }
+					hl.SnacksDashboardHeader = { fg = "#787BAB", bold = true }
+					hl.FloatBorder = { fg = "#D4BD98" }
+					-- hl.LineNr = { fg = "#2A2A35" } -- inactive line numbers (dim)
+					-- hl.LineNrAbove = { fg = "#2A2A35" } -- relative numbers above
+					-- hl.LineNrBelow = { fg = "#2A2A35" } -- relative numbers below
+					-- hl.CursorLineNr = { fg = "#CDCDCD" } -- current line number
+				end,
+			})
 		end,
 	},
 	--NOTE Fogbell
@@ -120,22 +239,36 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("lackluster").setup({})
+			require("lackluster").setup({
+				tweak_background = {
+					-- normal = "default", -- main background
+					normal = "none", -- transparent
+					-- normal = '#a1b2c3',    -- hexcode
+					-- normal = color.green,    -- lackluster color
+					telescope = "none", -- telescope
+					menu = "none", -- nvim_cmp, wildmenu ... (bad idea to transparent)
+					popup = "none", -- lazy, mason, whichkey ... (bad idea to transparent)
+				},
+			})
 		end,
 	},
 	-- NOTE: Catppuccin
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		-- priority = 1000,
+		priority = 1000,
 		config = function()
 			require("catppuccin").setup({
-				flavour = "auto", -- latte, frappe, macchiato, mocha
+				flavour = "mocha", -- latte, frappe, macchiato, mocha
 				background = { -- :h background
 					light = "latte",
 					dark = "mocha",
 				},
 				transparent_background = true, -- disables setting the background color.
+				float = {
+					transparent = true, -- enable transparent floating windows
+					solid = true, -- use solid styling for floating windows, see |winborder|
+				},
 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
 				term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
 				dim_inactive = {
@@ -161,9 +294,92 @@ return {
 					operators = {},
 					-- miscs = {}, -- Uncomment to turn off hard-coded styles
 				},
-				color_overrides = {},
+				color_overrides = {
+					mocha = (function()
+						-- hex -> r,g,b (0-1)
+						local function hex_to_rgb(hex)
+							hex = hex:gsub("#", "")
+							return tonumber(hex:sub(1, 2), 16) / 255,
+								tonumber(hex:sub(3, 4), 16) / 255,
+								tonumber(hex:sub(5, 6), 16) / 255
+						end
+
+						-- r,g,b -> h,s,l
+						local function rgb_to_hsl(r, g, b)
+							local max, min = math.max(r, g, b), math.min(r, g, b)
+							local l = (max + min) / 2
+							if max == min then
+								return 0, 0, l
+							end
+							local d = max - min
+							local s = l > 0.5 and d / (2 - max - min) or d / (max + min)
+							local h
+							if max == r then
+								h = (g - b) / d + (g < b and 6 or 0)
+							elseif max == g then
+								h = (b - r) / d + 2
+							else
+								h = (r - g) / d + 4
+							end
+							return h / 6, s, l
+						end
+
+						-- h,s,l -> hex
+						local function hsl_to_hex(h, s, l)
+							local function hue(p, q, t)
+								if t < 0 then
+									t = t + 1
+								end
+								if t > 1 then
+									t = t - 1
+								end
+								if t < 1 / 6 then
+									return p + (q - p) * 6 * t
+								end
+								if t < 1 / 2 then
+									return q
+								end
+								if t < 2 / 3 then
+									return p + (q - p) * (2 / 3 - t) * 6
+								end
+								return p
+							end
+							local r, g, b
+							if s == 0 then
+								r, g, b = l, l, l
+							else
+								local q = l < 0.5 and l * (1 + s) or l + s - l * s
+								local p = 2 * l - q
+								r = hue(p, q, h + 1 / 3)
+								g = hue(p, q, h)
+								b = hue(p, q, h - 1 / 3)
+							end
+							return string.format(
+								"#%02x%02x%02x",
+								math.floor(r * 255 + 0.5),
+								math.floor(g * 255 + 0.5),
+								math.floor(b * 255 + 0.5)
+							)
+						end
+
+						-- reduce saturation by factor (0 = grayscale, 1 = original)
+						local function mute(hex, factor)
+							factor = factor or 0.5
+							local r, g, b = hex_to_rgb(hex)
+							local h, s, l = rgb_to_hsl(r, g, b)
+							return hsl_to_hex(h, s * factor, l)
+						end
+
+						local p = require("catppuccin.palettes").get_palette("mocha")
+						local result = {}
+						for name, hex in pairs(p) do
+							result[name] = mute(hex)
+						end
+						return result
+					end)(),
+				},
 				custom_highlights = {
-					Visual = { bg = "#5f5faf", fg = "#C5F6FA", blend = 30 },
+					-- Visual = { bg = "#5f5faf", fg = "#C5F6FA", blend = 30 },
 				},
 				default_integrations = true,
 				integrations = {
@@ -171,10 +387,33 @@ return {
 					gitsigns = true,
 					nvimtree = true,
 					treesitter = true,
-					notify = false,
+					notify = true,
+					flash = true,
+					gitgraph = true,
+					diffview = true,
+					fidget = true,
+					markview = true,
+					mason = true,
+					noice = true,
+					octo = true,
+					overseer = true,
+					render_markdown = true,
+					dadbod_ui = true,
+					snacks = {
+						enabled = true,
+						indent_scope_color = "", -- catppuccin color (eg. `lavender`) Default: overlay2
+					},
 					mini = {
 						enabled = true,
-						indentscope_color = "",
+						indentscope_color = "blue",
+					},
+					indent_blankline = {
+						enabled = true,
+						scope_color = "blue", -- catppuccin color (eg. `lavender`) Default: text
+						colored_indent_levels = false,
+					},
+					blink_cmp = {
+						style = "bordered",
 					},
 					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 				},
@@ -226,7 +465,7 @@ return {
 		-- priority = 1000 ,
 		config = function()
 			require("gruvbox").setup({
-				terminal_colors = true, -- add neovim terminal colors
+				terminal_colors = false, -- add neovim terminal colors
 				undercurl = true,
 				underline = true,
 				bold = true,
@@ -253,7 +492,7 @@ return {
 			})
 		end,
 	},
-	-- NOTE: Kanagwa
+	-- NOTE: Kanagawa
 
 	{
 		"rebelot/kanagawa.nvim",
@@ -265,7 +504,7 @@ return {
 				undercurl = true,
 				commentStyle = { italic = true },
 				functionStyle = {},
-				keywordStyle = { italic = true },
+				keywordStyle = { italic = false },
 				statementStyle = { bold = true },
 				typeStyle = {},
 				transparent = true,
@@ -273,14 +512,6 @@ return {
 				terminalColors = true,
 				colors = {
 					palette = {
-						-- Override background colors to pure black
-						sumiInk0 = "#000000", -- Statusline and floating windows
-						sumiInk1 = "#000000", -- Main background
-						sumiInk2 = "#0a0a0a", -- Lighter background (colorcolumn, folds)
-						sumiInk3 = "#101010", -- Cursorline
-						sumiInk4 = "#1a1a1a", -- Line numbers, fold column
-
-						-- Keep all original Kanagawa colors
 						fujiWhite = "#DCD7BA",
 						oldWhite = "#C8C093",
 						waveBlue1 = "#223249",
@@ -314,108 +545,47 @@ return {
 						surimiOrange = "#FFA066",
 						katanaGray = "#717C7C",
 					},
+					overrides = function(colors)
+						local theme = colors.theme
+						return {}
+					end,
 					theme = {
+						-- applies to all variants (wave/dragon/lotus)
 						all = {
 							ui = {
-								bg_gutter = "none", -- Remove gutter background
-								bg = "#000000", -- Pure black background
-								bg_dim = "#000000",
-								bg_m1 = "#0a0a0a",
-								bg_m2 = "#101010",
-								bg_m3 = "#1a1a1a",
-								bg_p1 = "#0a0a0a",
-								bg_p2 = "#101010",
+								-- bg = "none",
+								bg_gutter = "none",
+								bg_dim = "none",
+								bg_m1 = "none",
+								bg_m2 = "none",
+								-- bg_m3 = "none",
+								bg_p1 = "none",
+								bg_p2 = "none",
+								-- bg_visual = "#333738",
+								-- bg_search = "none",
+								float = { bg = "none", bg_border = "none" },
+								sidebar = { bg = "none", bg_border = "none" },
+								popup = { bg = "none", bg_border = "none" },
 							},
 						},
 					},
 				},
-				overrides = function(colors)
-					local theme = colors.theme
-					return {
-						-- Transparent floating windows
-						NormalFloat = { bg = "none" },
-						FloatBorder = { bg = "#000000", fg = theme.ui.fg_dim },
-						FloatTitle = { bg = "#000000", fg = theme.ui.special, bold = true },
-
-						-- Darker background for specific elements
-						NormalDark = { fg = theme.ui.fg_dim, bg = "#000000" },
-
-						-- Plugin support
-						LazyNormal = { bg = "#000000", fg = theme.ui.fg_dim },
-						MasonNormal = { bg = "#000000", fg = theme.ui.fg_dim },
-
-						-- Telescope with pure black
-						TelescopeTitle = { fg = theme.ui.special, bold = true },
-						TelescopePromptNormal = { bg = "none" },
-						TelescopePromptBorder = { bg = "none" },
-						TelescopeResultsNormal = { bg = "none" },
-						TelescopeResultsBorder = { bg = "none" },
-						TelescopePreviewNormal = { bg = "none" },
-						TelescopePreviewBorder = { bg = "none" },
-
-						-- Popup menu with darker background
-						Pmenu = { fg = theme.ui.shade0, bg = "#0a0a0a" },
-						PmenuSel = { fg = "NONE", bg = "#101010" },
-						PmenuSbar = { bg = "#000000" },
-						PmenuThumb = { bg = "#1a1a1a" },
-
-						-- Status line
-						StatusLine = { bg = "#000000", fg = theme.ui.fg_dim },
-						StatusLineNC = { bg = "#000000", fg = theme.ui.nontext },
-
-						-- Tab line
-						TabLine = { bg = "#000000", fg = theme.ui.fg_dim },
-						TabLineFill = { bg = "#000000" },
-						TabLineSel = { bg = "#0a0a0a", fg = theme.ui.fg },
-
-						-- Line numbers and signs
-						LineNr = { fg = theme.ui.nontext, bg = "none" },
-						CursorLineNr = { fg = theme.ui.fg_dim, bg = "#101010" },
-						SignColumn = { bg = "none" },
-
-						-- Git signs
-						GitSignsAdd = { fg = theme.vcs.added, bg = "none" },
-						GitSignsChange = { fg = theme.vcs.changed, bg = "none" },
-						GitSignsDelete = { fg = theme.vcs.removed, bg = "none" },
-
-						-- Indent guides (invisible by default)
-						IndentBlanklineChar = { fg = "#0a0a0a" },
-						IndentBlanklineContextChar = { fg = "#1a1a1a" },
-
-						-- Cursor line
-						CursorLine = { bg = "#101010" },
-						CursorColumn = { bg = "#101010" },
-
-						-- Visual selection
-						Visual = { bg = "#1a1a1a" },
-
-						-- Better comment color for black background
-						Comment = { fg = "#6e6a5c", italic = true },
-
-						-- Diagnostic virtual text with subtle backgrounds
-						DiagnosticVirtualTextError = {
-							fg = theme.diag.error,
-							bg = "#1a0000",
-						},
-						DiagnosticVirtualTextWarn = {
-							fg = theme.diag.warning,
-							bg = "#1a1000",
-						},
-						DiagnosticVirtualTextInfo = {
-							fg = theme.diag.info,
-							bg = "#001a1a",
-						},
-						DiagnosticVirtualTextHint = {
-							fg = theme.diag.hint,
-							bg = "#00101a",
-						},
-					}
-				end,
-				theme = "wave",
+				theme = "dragon",
 				background = {
-					dark = "wave",
+					dark = "dragon",
 					light = "lotus",
 				},
+			})
+		end,
+	},
+	{
+		"thesimonho/kanagawa-paper.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+		config = function()
+			require("kanagawa-paper").setup({
+				transparent = true,
 			})
 		end,
 	},

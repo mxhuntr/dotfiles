@@ -1,39 +1,37 @@
 # By default Reload config with shft + cmd + ,
 
-config-file = themes/reverse_void
+config-file = themes/immortal
 language = ru
-# theme = Vague
-background-opacity = 1
+# theme = Black Metal (Immortal)
+background-opacity = 0.85
 background-blur-radius = 0
 image-storage-limit = 320000000
 
-# font-family = Comic Code Semibold
-# font-family = JetBrainsMono NF Semibold
-
-# font-family = MonoLisa Trial
-# font-style-bold = MonoLisa Trial
+# font-family = Maple Mono Medium
+# font-style-bold = Maple Mono Bold
 # font-thicken
-# font-thicken-strength = 255
-# font-size = 15.9
+# font-thicken-strength = 150
+# adjust-cell-height = 20%
+# font-size = 16
 
-font-family = Maple Mono Medium
-font-style-bold = Maple Mono Bold
-font-thicken
-font-thicken-strength = 5
-font-size = 16.3
-
-# font-family = Cascadia Code Medium
-# font-style-bold = Cascadia Code Bold
+# font-family = Fira Code Semibold
+# font-style-bold = Fira Code Bold
 # font-thicken
 # font-thicken-strength = 0
-# font-size = 16.9
+# adjust-cell-height = 20%
+# font-size = 15.8
 
-# font-family = Berkeley Mono trial
-# font-style-bold = Berkeley Mono Trial
-# font-thicken
-# font-thicken-strength = 180
-# font-size = 16
-# adjust-cell-height = 10%
+font-family = Agave Nerd Font
+font-style-bold = Agave Nerd Font
+font-thicken
+font-thicken-strength = 255
+font-size = 17.9
+adjust-cell-height = 50%
+adjust-cell-width = 0%
+adjust-underline-thickness = 10%
+adjust-strikethrough-thickness = 10%
+adjust-overline-thickness = 10%
+adjust-cursor-thickness = 100%
 
 cursor-style = block
 cursor-style-blink = true
@@ -46,11 +44,11 @@ mouse-hide-while-typing = true
 confirm-close-surface = false
 window-decoration = true
 window-padding-x = 10
-window-padding-y = 10
+window-padding-y = 5
 window-padding-balance = true
 
-auto-update = check
-auto-update-channel = stable
+auto-update = off
+auto-update-channel = tip
 
 # extras
 shell-integration-features = no-cursor

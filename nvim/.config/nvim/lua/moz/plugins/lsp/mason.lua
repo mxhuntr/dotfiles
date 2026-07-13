@@ -4,9 +4,9 @@ return {
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		"hrsh7th/cmp-nvim-lsp",
+		-- "hrsh7th/cmp-nvim-lsp",
 		"neovim/nvim-lspconfig",
-		-- "saghen/blink.cmp",
+		"saghen/blink.cmp",
 	},
 	config = function()
 		-- import mason and mason_lspconfig
@@ -32,7 +32,7 @@ return {
 		})
 
 		mason_lspconfig.setup({
-			automatic_enable = true,
+			-- automatic_enable = true,
 			-- servers for mason to install
 			ensure_installed = {
 				"lua_ls",
@@ -49,7 +49,6 @@ return {
 				"rust_analyzer", -- LSP
 				"clangd",
 				"pyright", -- Python LSP server (or use "basedpyright")
-				"denols",
 			},
 		})
 

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>Black Metal (Immortal)</string>
+  <key>settings</key>
+  <array>
+    <dict>
+      <key>settings</key>
+      <dict>
+        <!-- background = #000000, foreground = #c1c1c1 -->
+        <key>background</key>
+        <string>#000000</string>
+        <key>foreground</key>
+        <string>#c1c1c1</string>
+        <key>caret</key>
+        <string>#c1c1c1</string>
+        <key>selection</key>
+        <string>#c1c1c1</string>
+        <key>selectionForeground</key>
+        <string>#000000</string>
+        <key>lineHighlight</key>
+        <string>#404040</string>
+        <key>invisibles</key>
+        <string>#404040</string>
+        <key>gutterForeground</key>
+        <string>#555555</string>
+      </dict>
+    </dict>
+
+    <!-- Comments — palette 3 #556677 (muted blue-gray) -->
+    <dict>
+      <key>name</key>
+      <string>Comment</string>
+      <key>scope</key>
+      <string>comment, punctuation.definition.comment</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#556677</string>
+        <key>fontStyle</key>
+        <string>italic</string>
+      </dict>
+    </dict>
+
+    <!-- Strings — palette 2 #7799bb (blue) -->
+    <dict>
+      <key>name</key>
+      <string>String</string>
+      <key>scope</key>
+      <string>string, string.quoted, string.template</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#7799bb</string>
+      </dict>
+    </dict>
+
+    <!-- Keywords — palette 1 #5f8787 (teal) -->
+    <dict>
+      <key>name</key>
+      <string>Keyword</string>
+      <key>scope</key>
+      <string>keyword, keyword.control, keyword.operator, storage, storage.type, storage.modifier</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#5f8787</string>
+      </dict>
+    </dict>
+
+    <!-- Functions — palette 6 #aaaaaa -->
+    <dict>
+      <key>name</key>
+      <string>Function</string>
+      <key>scope</key>
+      <string>entity.name.function, meta.function-call, support.function</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#aaaaaa</string>
+      </dict>
+    </dict>
+
+    <!-- Types / Classes — palette 2 #7799bb -->
+    <dict>
+      <key>name</key>
+      <string>Type</string>
+      <key>scope</key>
+      <string>entity.name.type, entity.name.class, support.type, support.class</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#7799bb</string>
+      </dict>
+    </dict>
+
+    <!-- Constants / Numbers — palette 5 #999999 -->
+    <dict>
+      <key>name</key>
+      <string>Constant</string>
+      <key>scope</key>
+      <string>constant, constant.numeric, constant.language, constant.character</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#999999</string>
+      </dict>
+    </dict>
+
+    <!-- Variables — palette 7 #c1c1c1 -->
+    <dict>
+      <key>name</key>
+      <string>Variable</string>
+      <key>scope</key>
+      <string>variable, variable.other</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#c1c1c1</string>
+      </dict>
+    </dict>
+
+    <!-- Punctuation — palette 4 #888888 -->
+    <dict>
+      <key>name</key>
+      <string>Punctuation</string>
+      <key>scope</key>
+      <string>punctuation, meta.brace, meta.delimiter</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#888888</string>
+      </dict>
+    </dict>
+
+    <!-- Tags / Markup — palette 1 #5f8787 -->
+    <dict>
+      <key>name</key>
+      <string>Tag</string>
+      <key>scope</key>
+      <string>entity.name.tag, meta.tag</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#5f8787</string>
+      </dict>
+    </dict>
+
+    <!-- Attributes — palette 2 #7799bb -->
+    <dict>
+      <key>name</key>
+      <string>Attribute</string>
+      <key>scope</key>
+      <string>entity.other.attribute-name</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#7799bb</string>
+      </dict>
+    </dict>
+
+    <!-- Invalid / Error — palette 8 #404040 -->
+    <dict>
+      <key>name</key>
+      <string>Invalid</string>
+      <key>scope</key>
+      <string>invalid, invalid.illegal</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#c1c1c1</string>
+        <key>background</key>
+        <string>#404040</string>
+      </dict>
+    </dict>
+
+  </array>
+  <key>uuid</key>
+  <string>black-metal-immortal-bat</string>
+</dict>
+</plist>

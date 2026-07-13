@@ -2,10 +2,12 @@ add_newline = true
 
 # Minimal, calm, left-aligned
 format = "$directory$git_branch$character"
-palette = "reverse_void"
+# palette = "reverse_void"
 # palette = "kanagawa"
 # palette = "lackluster"
 # palette = "vague"
+palette = "koda"
+# palette = "catppuccin_mocha"
 
 [character]
 # success_symbol = "[❯](ink)"
@@ -14,6 +16,8 @@ success_symbol = "[λ](ink)"
 error_symbol   = "[λ](error)"
 # success_symbol = "[❯](oni_violet)"
 # error_symbol   = "[❯](wave_red)"
+# success_symbol = "λ"
+# error_symbol   = "λ"
 
 [directory]
 format = "[$path ]($style)"
@@ -139,6 +143,19 @@ error      = "#CCCCCC"   # soft red/orange
 background = "#1A1A1A"   # dark neutral bg (not pure black)
 
 # =========================
+# 🎨 Lackluster Palette
+# =========================
+
+[palettes.koda]
+ink        = "#b0b0b0"   # primary text (soft white)
+faded      = "#7393B3"   # blue-gray (secondary text)
+muted      = "#7AA89F"   # base gray
+warn       = "#d4b878"   # muted blue (calm warning)
+error      = "#c4746e"   # soft red/orange
+background = "#1A1A1A"   # dark neutral bg (not pure black)
+
+
+# =========================
 # 🎨 Kanagawa Palette
 # =========================
 
@@ -155,3 +172,34 @@ oni_violet = "#957FB8"
 wave_red = "#E46876"     
 sumi_ink = "#54546D"     
 
+# =========================
+# 🎨 Catppuccin Palette
+# =========================
+
+[palettes.catppuccin_mocha]
+rosewater = "#eee5e3"
+flamingo = "#e8d7d7"
+pink = "#e7d0e1"
+mauve = "#cdbce1"
+red = "#d6a8b5"
+maroon = "#d6b5ba"
+peach = "#dabaa7"
+yellow = "#e5dac3"
+green = "#b5d1b3"
+teal = "#a9cdc7"
+sky = "#a4c9d0"
+sapphire = "#95bacb"
+blue = "#a8bbdb"
+lavender = "#c8cdea"
+text = "#d8dce9"
+subtext1 = "#c4c8d4"
+subtext0 = "#afb3bf"
+overlay2 = "#9c9ea9"
+overlay1 = "#878994"
+overlay0 = "#73757f"
+surface2 = "#5f6069"
+surface1 = "#4b4c54"
+surface0 = "#36373f"
+base = "#22222a"
+mantle = "#1c1c21"
+crust = "#141418"

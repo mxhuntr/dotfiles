@@ -67,7 +67,12 @@ return {
 		vim.keymap.set("n", "<leader>tc", function()
 			local file_path = vim.fn.expand("%:.")
 			local file_name = vim.fn.expand("%:t:r")
-			local cmd = string.format("clear && clang %s -o %s && ./%s ; exec $SHELL", file_path, file_name, file_name)
+			local cmd = string.format(
+				"clear && clang -std=c99 -Wall -Wextra -Werror -fsanitize=address %s -o %s && ./%s ; exec $SHELL",
+				file_path,
+				file_name,
+				file_name
+			)
 			run_in_float(cmd)
 		end, { desc = "Compile & run C file" })
 
@@ -80,10 +85,17 @@ return {
 			run_in_float(cmd)
 		end, { desc = "Compile & run C++ file" })
 
-		-- Python file: run
+		-- Python file: run(native)
 		vim.keymap.set("n", "<leader>tp", function()
 			local file_path = vim.fn.expand("%:.")
 			local cmd = string.format("clear && python3 %s ; exec $SHELL", file_path)
+			run_in_float(cmd)
+		end, { desc = "Run Python file" })
+
+		-- Python file: run(uv)
+		vim.keymap.set("n", "<leader>tu", function()
+			local file_path = vim.fn.expand("%:.")
+			local cmd = string.format("clear && uv run %s ; exec $SHELL", file_path)
 			run_in_float(cmd)
 		end, { desc = "Run Python file" })
 
@@ -106,7 +118,7 @@ return {
 			run_in_float("rmpc")
 		end, { desc = "Open rmpc" })
 
-		-- Open rmpc
+		-- Open btop
 		vim.keymap.set("n", "<leader>tb", function()
 			run_in_float("btop")
 		end, { desc = "Open btop" })

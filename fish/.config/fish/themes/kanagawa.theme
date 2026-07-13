@@ -1,0 +1,28 @@
+foreground DCD7BA normal
+selection 2D4F67 brcyan
+comment 727169 brblack
+red C34043 red
+orange FF9E64 brred
+yellow C0A36E yellow
+green 76946A green
+purple 957FB8 magenta
+cyan 7AA89F cyan
+pink D27E99 brmagenta
+fish_color_normal $foreground
+fish_color_command $cyan
+fish_color_keyword $pink
+fish_color_quote $yellow
+fish_color_redirection $foreground
+fish_color_end $orange
+fish_color_error $red
+fish_color_param $purple
+fish_color_comment $comment
+fish_color_selection --background=$selection
+fish_color_search_match --background=$selection
+fish_color_operator $green
+fish_color_escape $pink
+fish_color_autosuggestion $comment
+fish_pager_color_progress $comment
+fish_pager_color_prefix $cyan
+fish_pager_color_completion $foreground
+fish_pager_color_description $comment

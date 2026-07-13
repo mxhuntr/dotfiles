@@ -18,6 +18,7 @@ return {
 		})
 
 		-- NOTE: Experimenting
+        
 		-- Telescope into Harpoon function
 		-- comment this function if you don't like it
 		-- local function toggle_telescope(harpoon_files)
@@ -55,9 +56,9 @@ return {
 		vim.keymap.set("n", "<C-.>", function()
 			harpoon:list():select(3)
 		end)
-		vim.keymap.set("n", "<C-/>", function()
-			harpoon:list():select(4)
-		end)
+		-- vim.keymap.set("n", "<C-/>", function()
+		-- 	harpoon:list():select(4)
+		-- end)
 
 		-- Toggle previous & next buffers stored within Harpoon list
 		vim.keymap.set("n", "<C-S-P>", function()

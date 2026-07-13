@@ -15,13 +15,21 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
+vim.o.cmdheight = 0
 
--- Always hard wrap at 80 characters in every file
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+-- -- Always hard wrap at 80 characters in every file
+-- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+-- 	callback = function()
+-- 		vim.opt_local.textwidth = 80
+-- 		vim.opt_local.formatoptions:append("t") -- wrap text
+-- 		vim.opt_local.smartindent = false
+-- 	end,
+-- })
+--
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "help",
 	callback = function()
-		vim.opt_local.textwidth = 80
-		vim.opt_local.formatoptions:append("t") -- wrap text
-		vim.opt_local.smartindent = false
+		vim.cmd("only")
 	end,
 })
 
@@ -35,7 +43,7 @@ vim.opt.undofile = true
 vim.opt.inccommand = "split"
 
 -- UI
-vim.opt.background = "dark"
+-- vim.opt.background = "dark"
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
@@ -63,13 +71,20 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.mouse = "a"
 
 -- Duplicates
-vim.o.winbar = nil
-vim.opt.incsearch = true
+-- vim.o.winbar = nil
+-- vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.termguicolors = true
+-- vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.backspace = { "start", "eol", "indent" }
-vim.opt.hlsearch = true
+-- vim.opt.hlsearch = true
 vim.g.editorconfig = true
 -- vim.lsp.set_log_level("ERROR")
+-- vim.opt.wildmode = "noselect"
+-- vim.api.nvim_create_autocmd("CmdlineChanged", {
+-- 	pattern = ":",
+-- 	callback = function()
+-- 		vim.fn.wildtrigger()
+-- 	end,
+-- })
