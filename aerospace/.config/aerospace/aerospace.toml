@@ -5,10 +5,11 @@
 start-at-login = true
 
 after-startup-command = [
-  # 'exec-and-forget borders style=round width=7.0 active_color=0xffffffff inactive_color=0xffa6a6a6', # vague
+  'exec-and-forget borders style=round width=5.0 active_color=0xffffffff inactive_color=0xffa6a6a6', # vague
   # 'exec-and-forget borders style=round width=6.0 active_color=0xff7788AA inactive_color=0xff404552', # lackluster
   # 'exec-and-forget borders style=round width=7.0 active_color=0xff000000 inactive_color=0xffa6a6a6', # reverse_void
-  'exec-and-forget open -a "/Applications/Ghostty.app"',
+  # 'exec-and-forget borders style=round width=7.0 active_color=0xff8ba4b0 inactive_color=0xffa6a6a6', # kanagawa
+  'exec-and-forget open -a "/Applications/kitty.app"',
   'exec-and-forget open -a "/Applications/Zen.app"',
   'exec-and-forget open -a "/Applications/Brave Browser.app"'
 ]
@@ -31,7 +32,8 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
+# if.app-id = 'com.mitchellh.ghostty'
+if.app-id = 'net.kovidgoyal.kitty'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
@@ -183,7 +185,7 @@ alt-tab = 'workspace-back-and-forth'
 
 # Primary apps
 shift-enter = 'exec-and-forget open -a "/Applications/Zen.app"'
-ctrl-enter  = 'exec-and-forget open -a "/Applications/Ghostty.app"'
+ctrl-enter  = 'exec-and-forget open -a "/Applications/kitty.app"'
  
 # Additional apps
 alt-b = 'exec-and-forget open -a "/Applications/Brave Browser.app"'
